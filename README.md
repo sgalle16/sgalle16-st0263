@@ -5,7 +5,6 @@
 ### Profesor: Juan Carlos Montoya, jcmontoy@eafit.edu.co
 
 
-
 ## RETO 1 Y 2 SISTEMA P2P - Comunicación entre procesos mediante API REST, RPC y MOM 
 
 Se plantea implementar un sistema de compartición de recursos (archivos) p2p totalmente descentralizado y no estructurado, usando protocolos de comunicación entre peers, como API REST, gRPC y MOM con RabbitMQ. 
@@ -38,6 +37,9 @@ Requisitos No Funcionales
 
   
 # 2. información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
+
+![peers](https://github.com/sgalle16/sgalle16-st0263/assets/14111169/a746c7fe-2b28-4f86-b273-c7424fb3a4d2)
+
 
 La arquitectura se basa en un sistema p2p totalmente descentralizado:
 Los sistemas distribuidos peer-to-peer (P2P) no estructurados son una forma de red en la que todos los nodos (peers) tienen las mismas capacidades y responsabilidades. No hay una estructura de red fija o predefinida, y los nodos pueden unirse, dejar y reorganizar la red a voluntad.
