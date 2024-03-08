@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github/sgalle16/sgalle16-st0263/P2PFileSharingSystem/client/proto";
+
+// El servicio P2P define los métodos que los peers pueden llamar.
+service P2PServiceConnection {
+    // Handshake es llamado cuando un peer se conecta exitosamente a la red.
+    rpc Handshake(HandshakeRequest) returns (HandshakeResponse) {}
+    // MonitorPeers permite el intercambio bidireccional de actualizaciones de estado entre el servidor y los peers.
+    rpc MonitorPeers(stream PeerStatusUpdate) returns (stream PeerUpdateResponse) {}
+    // GetPeers devuelve una lista de todos los peers conocidos en la red.
+    rpc GetPeers(Empty) returns (PeerList) {}
+}
+
+// HandshakeRequest se envía cuando un nuevo peer solicita conectarse.
+message HandshakeRequest {
+    PeerInfo peerInfo = 1;
+}
+
+// HandshakeResponse se devuelve en respuesta a un HandshakeRequest de la solicitud.
+message HandshakeResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+// PeerInfo encapsula la metadata de un peer.
+message PeerInfo {
+    string peer_id = 1;
+    string ip = 2;
+    int32 port = 3;
+}
+
+// PeerStatusUpdate se usa para enviar actualizaciones de estado de los peers
+message PeerStatusUpdate {
+    string peer_id = 1;
+    bool online = 2; // true para conectado, false para desconectado
+}
+
+// PeerUpdateResponse se devuelve en respuesta a un PeerStatusUpdate.
+message PeerUpdateResponse {
+    bool success = 1;
+    string message = 2;
+    string error = 3; // Mensaje de error, si hay alguno
+}
+
+// PeerList contiene una lista de peers.
+message PeerList {
+    repeated PeerInfo peers = 1;
+}
+
+// Empty es un mensaje vacío solo obtener los peers con GetPeers.
+message Empty {}

@@ -1,0 +1,12 @@
+{
+  "bootstrap_peers": [
+    {"peer_id": "bootstrap_1", "listening_ip": "127.0.0.1", "listening_port": 50056},
+    {"peer_id": "bootstrap_2", "listening_ip": "127.0.0.2", "listening_port": 50065},
+    {"peer_id": "bootstrap_3", "listening_ip": "127.0.0.2", "listening_port": 50075}
+  ],
+  "known_peers": [
+
+
+  ],
+  "file_directory": "./files/"
+}
