@@ -16,7 +16,7 @@ Lo que tenia pensado realizar no funciono, es decir que solo funcionan algunas c
 
 
 ## 1.2. Que aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
-No se cumplio con, uso de mom y api rest. tampoco con la localización de recursos.
+No se cumplio con, uso de mom y api rest. tampoco con la localización de recursos ni descubrimientos.
 
 Requisitos Funcionales
 
@@ -71,18 +71,18 @@ En el modulo de cliente, estan la parte de la interfaz grafica y de como se gest
 -
 ## detalles del desarrollo.
 
-La arquitectura se basa en los servicios específicos que ofrecerá cada componente del sistema, incluyendo los endpoints REST, las llamadas gRPC, y cómo se integrará el MOM para la comunicación asincrónica.
+La arquitectura se basa en los servicios específicos que ofrecerá cada componente del sistema, incluyendo los endpoints REST, las llamadas gRPC para el manejo y gestiones de conexiones, desconexiones y estados entre los peers, y cómo se integrará el MOM para la comunicación asincrónica.
 
 
 ## detalles técnicos
  
 
 ## descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
+El proyecto se divide por carpetas con nombre descriptivos para entender y maneja correctamente la escalibidalida y modularidad del mismo
 ## opcional - detalles de la organización del código por carpetas o descripción de algún archivo. (ESTRUCTURA DE DIRECTORIOS Y ARCHIVOS 
 ![image](https://github.com/sgalle16/sgalle16-st0263/assets/14111169/4bac98ab-ff16-4e82-9611-91b3cb4b945b)
 
 
-## opcionalmente - si quiere mostrar resultados o pantallazos 
 
 # 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
 Python:
@@ -111,6 +111,8 @@ protobuf⋅v1.32.0
 ## como se lanza el servidor.
 
 ## una mini guia de como un usuario utilizaría el software o la aplicación
+Se inicia el sistema y el peer iniciante intenta conectarse con los boostraps peer(bs), este peer siempre para iniciar y conectarse. Una vez conectado este le envia la lista de peers conocidos, y la lista de recursos. Dado el caso, el peer iniciante no logra conectarse con ningun bootstrap, este iniciaria como bootstrap(servidor). Y actuaria como tal, para recibir conexiones y llamadas de los peers entrante. 
+Para esto el usuario ejecutaria el sistema, corriendo cualquiera de los bootstrap peer especificando su puerto e iniciando el client
 
 ## opcionalmente - si quiere mostrar resultados o pantallazos 
 
